@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        Graysmoke: "#EBEBFF"
+        Graysmoke: "#EBEBFF",
+        Sepiagray: "#344563"
       }
     },
   },
