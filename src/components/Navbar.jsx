@@ -43,8 +43,8 @@ function Navbar() {
                 <span className='text-white'>Barnabas</span>
                 <span className='text-purple-500'>Mutinhiri</span>
             </div>
-            <div className="abot">
-                <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
+            <div className="about">
+                <ul className='hidden md:flex items-center space-x-6 lg:text-lg md:text-base text-white cursor-pointer'>
                     { items.map(({id, text, to }) => (
                         <li key={id}><Link
                         to={to}
@@ -55,7 +55,7 @@ function Navbar() {
                     ))}
                 </ul>
             </div>
-            <a className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
+            <a href='http://www.google.com' className='md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-full'>Download CV</a>
         </motion.div>
         <div className='flex md:hidden justify-between'>
             <motion.div animate={menu ? "open" : 'closed'}>

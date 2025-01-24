@@ -1,5 +1,5 @@
 import React from 'react'
-import avatar from '../assets/image.png'
+import avatar from '../assets/africa.png'
 import { motion} from 'motion/react'
 import { Link } from 'react-scroll'
 
@@ -13,7 +13,7 @@ const Hero = () => {
         delay:0.5,
         duration:0.5
       }}
-      className='mx-auto w-2/3 md:w-1/3 lg:w-1/4 rounded-full'
+      className='mx-auto w-2/3 md:w-1/3 lg:w-1/3 rounded-full'
       src={avatar}/>
       <motion.div
       initial={{ opacity:0 }}
