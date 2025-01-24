@@ -42,14 +42,14 @@ const Work = () => {
             initial={{opacity:0, y:100}}
             animate={inView ? {opacity:1, y:0} : {}}
             transition={{delay:0.3, duration: 0.5}}
-            className='text-4xl text-white underline font-bold text-center mb-12'>Our Work</motion.h2>
+            className='text-4xl text-white underline font-bold text-center mb-12'>My Work</motion.h2>
             <motion.p
              ref={ref}
              initial={{opacity:0, y:100}}
              animate={inView ? {opacity:1, y:0} : {}}
              transition={{delay:0.5, duration: 0.5}}
              className='mb-12 text-gray-400 text-center'>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod hic modi officiis at expedita tenetur.
+                I’ve worked on diverse projects, designing scalable systems and leading teams to deliver impactful solutions. Here are some highlights of my journey..
             </motion.p>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                 {

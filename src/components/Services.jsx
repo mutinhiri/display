@@ -8,31 +8,31 @@ const Services = () => {
 
   const serviceData = [
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Custom Software Development",
+      description: "I design and build tailored, scalable software solutions to meet unique business needs, providing end-to-end support from concept to maintenance."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Web and Mobile App Development",
+      description: "I develop responsive web and mobile applications using modern frameworks, delivering optimized, user-friendly experiences across devices."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "API Development and Integration",
+      description: "I create secure, scalable APIs and integrate third-party services like payment gateways and analytics tools to streamline operations."
     },
 
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "Software Architecture and System Design",
+      description: "I design efficient, scalable architectures, ensuring systems are secure, maintainable, and optimized for long-term growth."
     },
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: "DevOps and Cloud Solutions",
+      description: "I implement CI/CD pipelines, manage cloud deployments, and optimize infrastructure with tools like Docker, Kubernetes, and AWS."
     },
     {
-      title: "App Design",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!"
+      title: " Technical Consulting and Code Review",
+      description: "I provide expert advice, conduct code reviews, and recommend best practices to enhance software quality and team productivity."
     },
   ];
 
@@ -50,7 +50,7 @@ const Services = () => {
          transition={{duration: 0.5}}
           className='container mx-auto px-4 text-center'>
           <h2 className='text-3xl md:text-4xl font-bold underline mb-8'>Services</h2>
-          <p className='mb-12 text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, deleniti!</p>
+          <p className='mb-12 text-gray-400'>I offer a range of services designed to help businesses build scalable, efficient, and innovative software solutions. Here’s how I can support your goals.</p>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {
               serviceData.map((service, index) =>(

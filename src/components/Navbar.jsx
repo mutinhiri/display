@@ -40,8 +40,8 @@ function Navbar() {
         duration={{duration: 0.9}}
         className="container mx-auto hidden md:flex justify-between items-center py-6">
             <div className="text-xl lg:text-2xl font-bold flex items-center gap-1">
-                <span className='text-white'>FlexiLogic</span>
-                <span className='text-purple-500'>Africa</span>
+                <span className='text-white'>Barnabas</span>
+                <span className='text-purple-500'>Mutinhiri</span>
             </div>
             <div className="abot">
                 <ul className='hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white'>
@@ -97,8 +97,8 @@ function Navbar() {
             animate={{opacity: 1, x:0, y:0}}
             transition={{duration: 0.9}}
             className="text-xl font-bold flex items-center gap-2 py-6 px-4">
-                <span className='text-white'>FlexiLogic</span>
-                <span className='text-purple-500'>Africa</span>
+                <span className='text-white'>Barnabas</span>
+                <span className='text-purple-500'>Mutinhiri</span>
             </motion.div>
         </div>
         
