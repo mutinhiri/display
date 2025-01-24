@@ -1,14 +1,25 @@
-import { useState } from 'react'
-// import './App.css'
-import CardImage from './components/CardImage'
-import Resources from './components/Resources'
+
+import './App.css'
+import About from './components/About'
+import Contact from './components/Contact'
+// import Companies from './components/Companies'
+import Hero from './components/Hero'
+import Navbar from './components/Navbar'
+import Services from './components/Services'
+import Work from './components/Work'
 
 function App() {
 
   return (
-    <div className=''>
-      {/* <CardImage/> */}
-      <Resources/>
+    <div className='bg-[#1b0d40]'>
+      <Navbar/>
+      <Hero/>
+      <About/>
+      <Services/>
+      <Work/>
+      <Contact/>
+      {/* <Companies/> */}
+
     </div>
   )
 }
