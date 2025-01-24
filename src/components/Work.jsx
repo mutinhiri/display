@@ -10,7 +10,7 @@ const Work = () => {
         {
             id:1,
             title: "Text toitle",
-            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in.",
+            description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non totam, nisi dolore voluptas facilis sunt in",
             image: projectImg,
             link: '#'
         },
