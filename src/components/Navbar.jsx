@@ -87,7 +87,9 @@ function Navbar() {
                     
  
                             </ul>
-                            <a href="" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a>
+                            {/* <a href="google.com" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download Cv</a> */}
+                            <a href="https://google.com" className="text-lg bg-purple-500 hover:bg-purple-400 text-white py-2 mt-6 rounded-full">Download CV</a>
+
                         </div>
                     )}
                 </motion.div>

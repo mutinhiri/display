@@ -94,17 +94,17 @@ const Contact = () => {
                animate={inView ? {opacity: 1, x:0  }: {}}
                transition={{ delay:0.8, duration: 0.5}} 
                className='space-y-4 text-white '>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                    <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 text-black'>
+                    <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full text' />
                     <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 text-black'>
                     <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
                     <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
-                <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'></textarea>
+                <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full text-black'></textarea>
                 <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{scale: 0.95 }}
@@ -117,7 +117,7 @@ const Contact = () => {
                 2025. All rights reserved
             </p>
             <p>
-               FlexiLogic Africa
+               Bunbee
             </p>
             <div className='flex justify-center space-x-4 text-white mt-4 '>
                 <a href="" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>

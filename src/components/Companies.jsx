@@ -3,13 +3,14 @@ import { motion } from 'motion/react'
 
 const Companies = () => {
     const companies = [
-        "gooh",
-        "jkllo",
-        "jjjjkk",
-        "hdjjjkwk"
+        "Velocity Inc Tech",
+        "Tano Digital Solutions",
+        "UBITECH",
+        "AlgoSync",
+        "HyperionDev"
     ];
 
-    const companiesList = [...companies, ...companies, ...companies, ...companies]
+    const companiesList = [...companies, ...companies]
 
     const scrollVariants = {
         animate: {
