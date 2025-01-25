@@ -120,10 +120,10 @@ const Contact = () => {
                Bunbee
             </p>
             <div className='flex justify-center space-x-4 text-white mt-4 '>
-                <a href="" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>
+                <a href="https://www.facebook.com/jarbee.muzondiwa" className='hover:text-purple-500'><FaFacebook className='w-6 h-6'/></a>
                 <a href="" className='hover:text-purple-500'><FaTwitter className='w-6 h-6'/></a>
-                <a href="" className='hover:text-purple-500'><FaLinkedin className='w-6 h-6'/></a>
-                <a href="" className='hover:text-purple-500'><FaInstagram className='w-6 h-6'/></a>
+                <a href="https://www.linkedin.com/in/bunbee/" className='hover:text-purple-500'><FaLinkedin className='w-6 h-6'/></a>
+                <a href="https://www.instagram.com/barnabmutinhiri/" className='hover:text-purple-500'><FaInstagram className='w-6 h-6'/></a>
             </div>
         </motion.div>
     </div>
