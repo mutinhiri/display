@@ -1,5 +1,5 @@
 import React from 'react'
-import avatar from '../assets/africa.png'
+import avatar from '../assets/bee.png'
 import { motion} from 'motion/react'
 import { Link } from 'react-scroll'
 
@@ -22,7 +22,7 @@ const Hero = () => {
         duration: 0.5
       }}
        className='container mx-auto text-center'>
-        <motion.h1
+        {/* <motion.h1
         initial={{ opacity:0, y:100 }}
         animate={{opacity:1, y:0}}
         transition={{ delay:1, duration: 0.5}}
@@ -32,13 +32,13 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0}}
         transition={{ delay: 1.1, duration: 0.5}}
          className='text-purple-500'>Software Engineer</motion.span>
-        </motion.h1>
+        </motion.h1> */}
         <motion.p
          initial={{ opacity:0, y:100 }}
          animate={{opacity:1, y:0}}
          transition={{ delay:1.2, duration: 0.5}}
-         className='text-gray-400 text-lg mb-8'>I'm a software devoloper! I can help you build a product, feature or website. Look through some of my work and experience! If you like what you see and have a project you need coded, dont hesitate to contact me.</motion.p>
-        <div className="flex justify-center space-x-4 mb-10">
+         className='text-gray-400 text-lg mb-8 mt-12'>I'm a software devoloper! I can help you build a product, feature or website. Look through some of my work and experience! If you like what you see and have a project you need coded, dont hesitate to contact me.</motion.p>
+        <div className="flex justify-center space-x-4 mb-10 ">
           <motion.button
           initial={{opacity:0, x: -100 }}
           animate={{ opacity:1 , x:0 }}
