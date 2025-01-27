@@ -8,6 +8,31 @@ import { FaPhone,
 
 const Contact = () => {
 
+    const [result, setResult] = React.useState("");
+
+    const onSubmit = async (event) => {
+      event.preventDefault();
+      setResult("Sending....");
+      const formData = new FormData(event.target);
+  
+      formData.append("access_key", "f0a3d243-dc02-467a-9454-3cb3db850e6d");
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    };
+
     const {ref, inView} = useInView({
         triggerOnce: true,
         threshold: 0.2
@@ -93,15 +118,16 @@ const Contact = () => {
                initial={{opacity: 0, x: -50}}
                animate={inView ? {opacity: 1, x:0  }: {}}
                transition={{ delay:0.8, duration: 0.5}} 
+               onSubmit={onSubmit}
                className='space-y-4 text-white '>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 text-black'>
-                    <input type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full text' />
-                    <input type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
+                    <input name='name' type="text" placeholder='Full Name' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full text' />
+                    <input name="email" type="email" placeholder='Your email' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 text-black'>
-                    <input type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
-                    <input type="email" placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
+                    <input name="phone" type="text" placeholder='Phone Number' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full' />
+                    <input type="text" name='budget' placeholder='Budget' className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full'/>
 
                 </div>
                 <textarea name="say" placeholder='Message' id="" className='border border-purple-500 bg:gray-900 p-4 rounded-md w-full text-black'></textarea>
@@ -110,6 +136,7 @@ const Contact = () => {
                 whileTap={{scale: 0.95 }}
                  type='submit'className='bg-purple-500 text-white px-6 py-3 rounded-md hover:bg-purple-600 transition duration-200'>Submit Message</motion.button>
             </motion.form>
+            <span>{result}</span>
         </div>
         {/* footer */}
         <motion.div className='mt-48 flex justify-between items-center p-5 text-white border-t-2 border-purple-500'>
