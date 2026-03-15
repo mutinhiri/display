@@ -40,23 +40,25 @@ const SEC = {
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 const PROJECTS = [
-  { id:"01", title:"Nash Equilibrium via MR Simulation",   period:"Sep 2023 – Dec 2023", tags:["Python","ML","Simulation"], desc:"Formulated a Nash Equilibrium strategy to optimise revenue for poultry farms through mixed-reality simulation environments." },
-  { id:"02", title:"Sudoku Solver — Backtrack Search",      period:"Feb 2023 – May 2023", tags:["Flask","Python","AI"],       desc:"Built a Flask application for solving Sudoku puzzles with advanced backtracking and real-time step-by-step visualisation." },
-  { id:"03", title:"Cryptocurrency Price Forecasting",      period:"Sep 2022 – Dec 2022", tags:["TensorFlow","Python","Finance"], desc:"Led a team building neural networks to predict crypto price movements with high temporal accuracy across five assets." },
+  { id:"01", title:"Eduverse", tags:["NestJs","React","AWS"], desc:"Engineered a centralized management system to automate academic workflows and student data tracking via a unified digital portal. Developed automated grading scripts and a secure SQL database to streamline administrative tasks and improve data accessibility." },
+  { id:"02", title:"Contractor Management Tracking",      tags:["React","NestJs","AI"],       desc:"Developed a project management tool to coordinate external contractors and monitor billable hours through real-time time tracking modules. Built automated invoicing pipelines and a secure vendor portal to reduce administrative overhead and improve payroll accuracy for multi-entity companies." },
+  // { id:"03", title:"Cryptocurrency Price Forecasting",      period:"Sep 2022 – Dec 2022", tags:["TensorFlow","Python","Finance"], desc:"Led a team building neural networks to predict crypto price movements with high temporal accuracy across five assets." },
 ];
 const EXPERIENCE = [
-  { role:"Senior Software Engineer", company:"TechCorp Inc.",  period:"Jun 2022 – Present",  desc:"Architected distributed systems handling 50M+ daily requests. Led 8 engineers driving a 60% reduction in P99 latency." },
-  { role:"Full Stack Developer",     company:"StartupXYZ",     period:"Jan 2020 – May 2022", desc:"Led development of a SaaS dashboard serving 500+ enterprise clients across 4 product verticals with React, Node.js and PostgreSQL." },
-  { role:"Research Assistant",       company:"University Lab", period:"Sep 2018 – Dec 2019", desc:"Published two peer-reviewed papers on transformer architecture optimisation for low-resource NLP tasks." },
+  { role:"Software Engineer", company:"Piktochart AI",  period:"Oct 2025 – Feb 2026",  desc:"Contributed to backend development for AI-driven infographics features. Improved PostgreSQL database efficiency through query optimization" },
+  { role:"Software Engineering Team Lead",     company:"Velocity Inc Tech",     period:"Feb 2023 – Sep 2025", desc:"Led development of a SaaS dashboard serving 500+ enterprise clients across 4 product verticals with React, Node.js and PostgreSQL." },
+  { role:"Software Engineer",       company:"HperionDev", period:"Sep 2021 – Feb 2023", desc:"Mentored junior developers through code reviews, pair programming, and technical training. " },
+  { role:"Full Stack Developer",       company:"UBITECH", period:"Jul 2019 – Feb 2021", desc:"Built customer-facing applications for table reservations, online ordering, and loyalty programs. " },
+
 ];
 const EDUCATION = [
-  { degree:"MS Computer Science",     school:"University of Delaware",      year:"2022 – 2024" },
-  { degree:"Bachelor of Engineering", school:"R.V. College of Engineering", year:"2018 – 2022" },
+  { degree:"Full Stack Software Engineering",     school:"MICROVERSE",      year:"2021 – 2022" },
+  { degree:"Bachelor of Business", school:"Midlands State University", year:"2016 – 2020" },
 ];
 const CERTS = [
-  { title:"NLP with Probabilistic Models",           org:"DeepLearning.AI", date:"Apr 2024" },
-  { title:"NLP with Sequence Models",                org:"DeepLearning.AI", date:"Apr 2024" },
-  { title:"NLP with Classification & Vector Spaces", org:"DeepLearning.AI", date:"Apr 2024" },
+  { title:"AWS Certified Developer Associate",           org:"Amazon Web Services", date:"Jan 2025" },
+  { title:"AWS Certified Cloud Practitioner",                org:"Amazon Web Services", date:"Apr 2024" },
+  // { title:"NLP with Classification & Vector Spaces", org:"DeepLearning.AI", date:"Apr 2024" },
 ];
 const SKILLS = [
   { name:"React / Next.js",   pct:97 },
@@ -69,11 +71,33 @@ const SKILLS = [
 ];
 const BADGES = [
   { label:"Developer", sub:"+10 yrs", icon:"</>", angle:35,  delay:0.00 },
-  { label:"Educator",  sub:"+ 3 yrs", icon:"🎓",  angle:150, delay:0.15 },
+  { label:"Architect",  sub:"+ 3 yrs", icon:"⚙️",  angle:150, delay:0.15 },
   { label:"Engineer",  sub:"+10 yrs", icon:"⚙️",  angle:220, delay:0.30 },
   { label:"Designer",  sub:"+ 5 yrs", icon:"✦",   angle:315, delay:0.45 },
 ];
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  
+  try {
+    const response = await fetch("https://formspree.io/f/xkoqvzqp", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json' // This tells Formspree to expect/return JSON
+      },
+    });
+
+    if (response.ok) {
+      alert("Message sent!");
+    } else {
+      console.error("Submission failed");
+    }
+  } catch (error) {
+    console.error("Network error", error);
+  }
+};
 // ─── SPIRAL CANVAS ───────────────────────────────────────────────────────────
 function SpiralCanvas() {
   const ref = useRef(null);
@@ -271,7 +295,7 @@ function ExperienceItem({exp,index}) {
 }
 
 // ─── FORM FIELD ──────────────────────────────────────────────────────────────
-function Field({label,type="text",placeholder,rows}) {
+function Field({label,type="text",placeholder,rows, name}) {
   const base = {
     width:"100%",background:"rgba(0,220,180,0.03)",border:"1px solid rgba(0,220,180,0.16)",
     color:C.heading,fontSize:"15px",padding:"14px 16px",outline:"none",
@@ -286,8 +310,8 @@ function Field({label,type="text",placeholder,rows}) {
       <label style={{display:"block",fontSize:"12px",letterSpacing:"0.16em",textTransform:"uppercase",
         ...MONO,color:"rgba(0,220,180,0.5)",marginBottom:"9px"}}>{label}</label>
       {rows
-        ? <textarea rows={rows} placeholder={placeholder} style={{...base,resize:"vertical",lineHeight:1.65}} {...events}/>
-        : <input type={type} placeholder={placeholder} style={base} {...events}/>}
+        ? <textarea name={name} rows={rows} placeholder={placeholder} style={{...base,resize:"vertical",lineHeight:1.65}} {...events}/>
+        : <input name={name} type={type} placeholder={placeholder} style={base} {...events}/>}
     </div>
   );
 }
@@ -441,8 +465,7 @@ export default function Portfolio() {
 
             <motion.p initial={{opacity:0,y:12}} animate={heroInView?{opacity:1,y:0}:{}} transition={{delay:0.9}}
               style={{color:"#4a8070",fontSize:"16px",lineHeight:1.8,marginTop:"24px",maxWidth:"400px"}}>
-              Seasoned engineer who thinks in systems and ships in pixels.
-              10+ years crafting performant, beautiful products from kernel to canvas.
+              Seasoned engineer who thinks in systems and ships in pixels. 8+ years experience crafting performant, beautiful products from kernel to canvas.
             </motion.p>
 
             <motion.div initial={{opacity:0,y:10}} animate={heroInView?{opacity:1,y:0}:{}} transition={{delay:1.1}}
@@ -481,7 +504,7 @@ export default function Portfolio() {
           <div style={{maxWidth:`${CONTENT_MAX}px`}}>
             <SectionHeader title="Projects"/>
             {PROJECTS.map((p,i)=><ProjectCard key={p.id} project={p} index={i}/>)}
-            <div style={{marginTop:"8px"}}><GhostBtn>View All Projects →</GhostBtn></div>
+            <div onClick={() => window.open('https://www.linkedin.com/in/bunbee/', '_blank')} style={{marginTop:"8px"}}><GhostBtn>View All Projects →</GhostBtn></div>
           </div>
         </section>
 
@@ -502,7 +525,7 @@ export default function Portfolio() {
 
             <motion.p initial={{opacity:0,y:14}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
               style={{color:C.body,fontSize:"16px",lineHeight:1.85,marginBottom:"48px"}}>
-              I'm a seasoned engineer with 10+ years shipping production systems — from distributed
+              I'm a seasoned engineer with 8+ years shipping production systems from distributed
               backends to pixel-perfect interfaces. I believe great software is equally rigorous and
               beautiful, and I thrive at the intersection of engineering and design thinking.
             </motion.p>
@@ -548,23 +571,23 @@ export default function Portfolio() {
               I'd love to hear about your project.
             </motion.p>
 
-            <motion.div initial={{opacity:0,y:18}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:0.1}}
+            <motion.form onSubmit={handleSubmit} initial={{opacity:0,y:18}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:0.1}}
               style={{display:"flex",flexDirection:"column",gap:"24px"}}>
 
               {/* Name + Email side-by-side */}
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"20px"}}>
-                <Field label="Name"  placeholder="John Doe"         type="text"/>
-                <Field label="Email" placeholder="john@example.com" type="email"/>
+                <Field label="Name"  placeholder="Your Name"  name="name"       type="text"/>
+                <Field label="Email" placeholder="Your email address" type="email" name="email"/>
               </div>
 
-              <Field label="Message" placeholder="Tell me about your project…" rows={5}/>
+              <Field label="Message" name="message" placeholder="Tell me about your project…" rows={5}/>
 
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",
                 flexWrap:"wrap",gap:"16px",paddingTop:"4px"}}>
                 <span style={{color:"rgba(0,220,180,0.28)",fontSize:"13px",...MONO}}>
-                  or reach me at bunbee@email.com
+                  or reach me at barnabmutinhiri@gmail.com
                 </span>
-                <motion.button whileHover={{background:"#00ffb3"}}
+                <motion.button type="submit" whileHover={{background:"#00ffb3"}}
                   style={{fontSize:"14px",background:C.teal,color:"#000",padding:"14px 36px",
                     border:"none",fontWeight:700,cursor:"pointer",...MONO,
                     letterSpacing:"0.1em",textTransform:"uppercase",
@@ -573,7 +596,7 @@ export default function Portfolio() {
                 </motion.button>
               </div>
 
-            </motion.div>
+            </motion.form>
           </div>
         </section>
 
